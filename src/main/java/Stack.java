@@ -1,6 +1,6 @@
 public class Stack {
 
-    public int [] values = new int[2];
+    public int [] values = new int[3];
     public int counter = 0;
 
     public boolean isEmpty() {
@@ -17,5 +17,9 @@ public class Stack {
 
     public int pop() {
         return values[counter--];
+    }
+
+    public int peek() {
+        return values[counter - 1];
     }
 }

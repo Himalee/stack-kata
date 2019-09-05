@@ -34,4 +34,21 @@ public class StackTest {
         Assert.assertFalse(stack.isEmpty());
         Assert.assertEquals(2, stack.size());
     }
+
+    @Test
+    public void pushTwiceToEmptyStack_getLastElementInStack() {
+        Stack stack = new Stack();
+        stack.push();
+        stack.push();
+        Assert.assertEquals(2, stack.peek());
+    }
+
+    @Test
+    public void pushThreeTimesToEmptyStack_getLastElementInStack() {
+        Stack stack = new Stack();
+        stack.push();
+        stack.push();
+        stack.push();
+        Assert.assertEquals(3, stack.peek());
+    }
 }
