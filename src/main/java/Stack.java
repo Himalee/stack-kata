@@ -1,10 +1,16 @@
 public class Stack {
 
+    public int value = 0;
+
     public boolean isEmpty() {
-        return true;
+        return value == 0;
     }
 
     public int size() {
-        return 0;
+        return value;
+    }
+
+    public void push() {
+        ++value;
     }
 }
