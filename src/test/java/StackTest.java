@@ -16,4 +16,13 @@ public class StackTest {
         Assert.assertFalse(stack.isEmpty());
         Assert.assertEquals(1, stack.size());
     }
+
+    @Test
+    public void pushAndPopToEmptyStack_stackIsEmpty() {
+        Stack stack = new Stack();
+        stack.push();
+        stack.pop();
+        Assert.assertTrue(stack.isEmpty());
+        Assert.assertEquals(0, stack.size());
+    }
 }
