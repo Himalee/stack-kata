@@ -1,20 +1,20 @@
 public class Stack {
 
-    public int value = 0;
+    public int counter = 0;
 
     public boolean isEmpty() {
-        return value == 0;
+        return counter == 0;
     }
 
     public int size() {
-        return value;
+        return counter;
     }
 
     public void push() {
-        ++value;
+        ++counter;
     }
 
     public void pop() {
-        --value;
+        --counter;
     }
 }

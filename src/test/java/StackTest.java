@@ -25,4 +25,13 @@ public class StackTest {
         Assert.assertTrue(stack.isEmpty());
         Assert.assertEquals(0, stack.size());
     }
+
+    @Test
+    public void pushTwiceToEmptyStack_stackHasSizeOfTwo() {
+        Stack stack = new Stack();
+        stack.push();
+        stack.push();
+        Assert.assertFalse(stack.isEmpty());
+        Assert.assertEquals(2, stack.size());
+    }
 }
