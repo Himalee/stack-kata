@@ -1,5 +1,6 @@
 public class Stack {
 
+    public int [] values = new int[2];
     public int counter = 0;
 
     public boolean isEmpty() {
@@ -11,10 +12,10 @@ public class Stack {
     }
 
     public void push() {
-        ++counter;
+        values[counter] = ++counter;
     }
 
-    public void pop() {
-        --counter;
+    public int pop() {
+        return values[counter--];
     }
 }
