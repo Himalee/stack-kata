@@ -1,54 +1,54 @@
-import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class StackTest {
+
+    private Stack stack;
+
+    @Before
+    public void setUp() {
+        stack = new Stack(3);
+    }
+
+    @Test
+    public void newStackisEmpty() {
+        assertEquals(0, stack.size());
+   }
+
    @Test
-    public void emptyStack_isEmpty() {
-       Stack stack = new Stack();
-       Assert.assertTrue(stack.isEmpty());
-       Assert.assertEquals(0, stack.size());
+   public void pushIncreasesSize() {
+      stack.push(1);
+      assertEquals(1, stack.size());
    }
 
     @Test
-    public void pushToEmptyStack_stackIsNotEmptyAndHasSizeOfOne() {
-        Stack stack = new Stack();
-        stack.push();
-        Assert.assertFalse(stack.isEmpty());
-        Assert.assertEquals(1, stack.size());
-    }
-
-    @Test
-    public void pushAndPopToEmptyStack_stackIsEmpty() {
-        Stack stack = new Stack();
-        stack.push();
+    public void pushAndPopLeavesStackEmpty() {
+        stack.push(1);
         stack.pop();
-        Assert.assertTrue(stack.isEmpty());
-        Assert.assertEquals(0, stack.size());
+        assertEquals(0, stack.size());
     }
 
     @Test
-    public void pushTwiceToEmptyStack_stackHasSizeOfTwo() {
-        Stack stack = new Stack();
-        stack.push();
-        stack.push();
-        Assert.assertFalse(stack.isEmpty());
-        Assert.assertEquals(2, stack.size());
+    public void popReturnsLastPushedValue() {
+        stack.push(3);
+        assertEquals(3, stack.pop());
     }
 
     @Test
-    public void pushTwiceToEmptyStack_getLastElementInStack() {
-        Stack stack = new Stack();
-        stack.push();
-        stack.push();
-        Assert.assertEquals(2, stack.peek());
+    public void pushAndPopMultipleTimes() {
+        stack.push(1);
+        stack.push(2);
+        stack.pop();
+        assertEquals(1, stack.pop());
     }
 
     @Test
-    public void pushThreeTimesToEmptyStack_getLastElementInStack() {
-        Stack stack = new Stack();
-        stack.push();
-        stack.push();
-        stack.push();
-        Assert.assertEquals(3, stack.peek());
+    public void stackOverflow() {
+        stack.push(1);
+        stack.push(1);
+        stack.push(1);
+        stack.push(1);
     }
 }

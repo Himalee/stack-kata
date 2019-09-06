@@ -1,25 +1,26 @@
+import java.util.Arrays;
+
 public class Stack {
 
-    public int [] values = new int[3];
-    public int counter = 0;
+    private int counter;
+    private int[] values;
 
-    public boolean isEmpty() {
-        return counter == 0;
+    public Stack(int size) {
+        values = new int[size];
     }
 
     public int size() {
         return counter;
     }
 
-    public void push() {
-        values[counter] = ++counter;
+    public void push(int value) {
+        if (counter == values.length)
+            values = Arrays.copyOf(values, values.length*2);
+
+        values[counter++] = value;
     }
 
     public int pop() {
-        return values[counter--];
-    }
-
-    public int peek() {
-        return values[counter - 1];
+        return values[--counter];
     }
 }
